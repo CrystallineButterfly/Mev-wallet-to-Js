@@ -1,12 +1,10 @@
-import { ethers } from 'ethers';
-import { MevWalletFactoryV1, MEV_WALLET_FACTORY_ADDRESS } from '.';
-import { MevWalletFactoryV1Abi__factory } from './bindings';
+const { ethers } = require('ethers');
+const { MevWalletFactoryV1, MEV_WALLET_FACTORY_ADDRESS } = require('.');
+const { MevWalletFactoryV1Abi__factory } = require('./bindings');
 
-export function getFactory(
-  providerOrSigner: ethers.providers.Provider,
-): MevWalletFactoryV1 {
+export default function getFactory(providerOrSigner) {
   return MevWalletFactoryV1Abi__factory.connect(
     MEV_WALLET_FACTORY_ADDRESS,
-    providerOrSigner,
+    providerOrSigner
   );
 }
